@@ -1,11 +1,11 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace lab1
 {
-    class Program
+    class ProgramOne
     {
 
         static void Main(string[] args)
@@ -58,4 +58,4 @@ namespace lab1
             Console.ReadKey();
         }
     }
-}
+}*/
