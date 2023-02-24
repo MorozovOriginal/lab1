@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data;
 
 namespace lab1
 {
@@ -8,43 +7,60 @@ namespace lab1
 
         static void Main(string[] args)
         {
-            string s, newslovo, slovo = "";
-            s = Console.ReadLine();
-            char[] bukvi = { 'h', 'e', 'l', 'o' };
-            for (int i = 0; i < s.Length; i++)
+            bool AllUP(string str)
             {
-                for (int j = 0; j < bukvi.Length; j++)
+                for (int i = 0; i < str.Length; i++)
                 {
-                    if (s[i] == bukvi[j])
+                    if (!Char.IsUpper(str[i]))
+                        return false;
+                }
+                return true;
+            }
+            bool FirstUP(string str)
+            {
+                string newstr = "";
+                if(str.ToLower()[0] == str[0])
+                {
+                    if(str.Length == 1)
                     {
-                        slovo += s[i];
+                        return true;
+                    }
+                    for (int i = 1; i < str.Length; i++)
+                    {
+                        newstr += str[i];
+                    }
+                    bool check = AllUP(newstr);
+                    if(check)
+                    {
+                        return true;
                     }
                 }
+                return false;
             }
-            newslovo = slovo;
-            slovo = "";
-            for (int g = 0; g < 10; g++)
+            string slovo, newslovo = "";
+            slovo = Console.ReadLine();
+            bool checkone = AllUP(slovo);
+            bool checktwo= FirstUP(slovo);
+            if(!checkone && !checktwo)
             {
-                for (int i = 0; i < newslovo.Length; i++)
-                {
-                    var temp = newslovo[i];
-                    if (i != newslovo.Length - 1 && temp == newslovo[i + 1])
-                    {
-                        i++;
-                    }
-                    slovo += newslovo[i];
-                }
-                newslovo = slovo;
-                slovo = "";
+                Console.WriteLine(slovo);
             }
-
-            slovo = newslovo;
-            Console.WriteLine(slovo);
-            if (slovo == "helo")
-                Console.WriteLine("YES");
             else
-                Console.WriteLine("NO");
-            
+            {
+                for (int i = 0; i < slovo.Length; i++)
+                {
+                    char temp = slovo[i];
+                    if (slovo.ToLower()[i] == temp)
+                    {
+                        newslovo += Char.ToUpper(temp);
+                    }
+                    else if(slovo.ToUpper()[i] == temp)
+                    {
+                        newslovo += Char.ToLower(temp);
+                    }
+                }
+                Console.WriteLine(newslovo);
+            }
             Console.ReadKey();
         }
     }
