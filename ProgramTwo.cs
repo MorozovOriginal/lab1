@@ -7,8 +7,9 @@ namespace lab1
 
         static void Main(string[] args)
         {
-            bool AllUP(string str)
+            bool AllUP(string str, string test)
             {
+                test = "";
                 for (int i = 0; i < str.Length; i++)
                 {
                     if (!Char.IsUpper(str[i]))
