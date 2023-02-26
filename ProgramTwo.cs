@@ -9,13 +9,14 @@ namespace lab1
         {
             bool AllUP(string str)
             {
+                string test = "";
                 for (int i = 0; i < str.Length; i++)
                 {
                     if (!Char.IsUpper(str[i]))
                         return false;
                 }
                 return true;
-            }
+            }   
             bool FirstUP(string str)
             {
                 string newstr = "";
